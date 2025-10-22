@@ -7,6 +7,13 @@ import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 
+/**
+ * Render a styled fieldset container for grouping related form fields.
+ *
+ * @param {string} [className] - Additional class names to merge with the component's default layout classes.
+ * @param {object} [props] - Additional props that are spread onto the rendered fieldset element.
+ * @returns {JSX.Element} The fieldset element with data-slot="field-set" and combined classes.
+ */
 function FieldSet({
   className,
   ...props
@@ -23,6 +30,14 @@ function FieldSet({
   );
 }
 
+/**
+ * Render a field legend element with variant-controlled styling and slot attributes.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.className] - Additional class names to merge with the component's defaults.
+ * @param {"legend"|"label"} [props.variant="legend"] - Visual variant that adjusts text sizing and styling.
+ * @returns {JSX.Element} The legend element annotated with `data-slot="field-legend"` and `data-variant`.
+ */
 function FieldLegend({
   className,
   variant = "legend",
@@ -42,6 +57,12 @@ function FieldLegend({
   );
 }
 
+/**
+ * Presentational container that groups related form fields.
+ *
+ * Renders a div marked with `data-slot="field-group"` and layout classes; additional props are spread onto the div.
+ * @returns {JSX.Element} A div element used as the field group container.
+ */
 function FieldGroup({
   className,
   ...props
@@ -78,6 +99,13 @@ const fieldVariants = cva("group/field flex w-full gap-3 data-[invalid=true]:tex
   },
 })
 
+/**
+ * Render a field group container with orientation-based styling.
+ * @param {Object} props
+ * @param {string} [props.className] - Additional CSS classes applied to the container.
+ * @param {'vertical'|'horizontal'|'responsive'} [props.orientation='vertical'] - Layout orientation used to select styling variants.
+ * @returns {JSX.Element} A field group element (role="group") with data-slot="field", a data-orientation attribute, and composed classes.
+ */
 function Field({
   className,
   orientation = "vertical",
@@ -93,6 +121,13 @@ function Field({
   );
 }
 
+/**
+ * Container for a field's main content (label and input) that applies layout classes and exposes a `data-slot="field-content"`.
+ *
+ * @param {string} [className] - Additional class names to merge with the default layout classes.
+ * @param {object} [props] - Additional props passed through to the rendered div.
+ * @returns {JSX.Element} The rendered div element serving as the field content container.
+ */
 function FieldContent({
   className,
   ...props
@@ -105,6 +140,12 @@ function FieldContent({
   );
 }
 
+/**
+ * Render a styled Label component used as the field's label slot.
+ * @param {string} [className] - Additional class names to merge with the component's defaults.
+ * @param {object} [props] - Additional props forwarded to the underlying Label component.
+ * @returns {JSX.Element} The rendered Label element configured for use as a field label (includes slot and state-related classes).
+ */
 function FieldLabel({
   className,
   ...props
@@ -122,6 +163,14 @@ function FieldLabel({
   );
 }
 
+/**
+ * Renders a container for a field's title inside the label area.
+ *
+ * Merges provided `className` with the component's default styling and sets
+ * `data-slot="field-label"` for consistent slot-based theming.
+ * @param {Object} props - Component props.
+ * @param {string} [props.className] - Additional CSS classes to append to the default classes.
+ */
 function FieldTitle({
   className,
   ...props
@@ -137,6 +186,13 @@ function FieldTitle({
   );
 }
 
+/**
+ * Renders a paragraph element used as a field's descriptive helper text.
+ *
+ * @param {string} [className] - Additional CSS classes to merge with the component's default styling.
+ * @param {Object} [props] - Additional props spread onto the paragraph element (e.g., id, children, aria attributes).
+ * @returns {JSX.Element} The paragraph element used for field description content.
+ */
 function FieldDescription({
   className,
   ...props
@@ -154,6 +210,12 @@ function FieldDescription({
   );
 }
 
+/**
+ * Render a horizontal separator with optional centered content.
+ * @param {import('react').ReactNode} [children] - Optional content rendered centered above the separator line.
+ * @param {string} [className] - Additional class names applied to the outer container.
+ * @returns {JSX.Element} The rendered separator element with a divider and optional centered content.
+ */
 function FieldSeparator({
   children,
   className,
@@ -180,6 +242,19 @@ function FieldSeparator({
   );
 }
 
+/**
+ * Render validation error content for a field.
+ *
+ * If `children` is provided it is used as the content. Otherwise displays a single
+ * error message when `errors` contains one item, a list of messages when multiple
+ * errors are present, and nothing when there are no errors.
+ *
+ * @param {Object} props
+ * @param {string} [props.className] - Additional CSS class names applied to the container.
+ * @param {import('react').ReactNode} [props.children] - Explicit content to render instead of deriving content from `errors`.
+ * @param {{ message?: string }[]=} [props.errors] - Array of error objects; each object's `message` is displayed.
+ * @returns {import('react').ReactNode} A React element with the error message(s) when present, or `null` when there is no content to show.
+ */
 function FieldError({
   className,
   children,

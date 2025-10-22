@@ -1,7 +1,12 @@
 // app/signup/page.jsx
 
 import { GalleryVerticalEnd } from "lucide-react";
-import { SignUpForm } from "@/components/signup-form"; // Import the JSX form
+import { SignUpForm } from "@/components/signup-form"; /**
+ * Render the signup page layout with a left-side signup form and a right-side image testimonial.
+ *
+ * The layout is a responsive two-column grid: the left column contains a header/logo and centers the SignUpForm component; the right column, visible on large screens, displays a full-bleed background image with a bottom-aligned testimonial and author footer.
+ * @returns {JSX.Element} The signup page React element.
+ */
 
 export default function SignUpPage() {
   return (

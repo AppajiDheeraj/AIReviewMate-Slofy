@@ -24,6 +24,14 @@ export const metadata = {
   description: "AI-powered code review dashboard",
 };
 
+/**
+ * Root layout component that provides global fonts, authentication, theming,
+ * editor and sidebar context and renders the application chrome around `children`.
+ *
+ * @param {object} props
+ * @param {import('react').ReactNode} props.children - The page or app content to render inside the layout.
+ * @returns {JSX.Element} The top-level HTML and body structure with providers, sidebar, toaster, and floating dock.
+ */
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>

@@ -14,6 +14,15 @@ import { useSidebar } from "@/components/ui/sidebar";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
+/**
+ * Render a floating dock UI with interactive navigation items.
+ *
+ * The dock displays icons for Dashboard, Pricing, Waitlist, Profile, GitHub, and Logout.
+ * Clicking an item navigates to its target; clicking Logout invokes the auth logout action.
+ * Navigation to Pricing or Waitlist also closes the sidebar before routing.
+ *
+ * @returns {JSX.Element} The rendered FloatingDock component positioned near the bottom center of the viewport.
+ */
 export function FloatingDockDemo() {
   const { setOpen } = useSidebar();
   const router = useRouter();

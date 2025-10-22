@@ -12,6 +12,18 @@ import {
 } from "@/components/ui/field";
 import { cn } from "@/lib/utils";
 
+/**
+ * Render a login form UI and handle the authentication flow.
+ *
+ * On submit, extracts email and password from the form, calls the `login` function
+ * from authentication context, shows a success toast with the user's name and
+ * navigates to "/dashboard" on success, or shows an error toast on failure.
+ * The GitHub button displays an informational toast and is non-functional.
+ *
+ * @param {object} props
+ * @param {string} [props.className] - Additional CSS class names applied to the form container.
+ * @returns {JSX.Element} The rendered login form element.
+ */
 export function LoginForm({ className, ...props }) {
   const { login } = useAuth();
 
