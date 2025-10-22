@@ -5,6 +5,13 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ChevronDownIcon, LogOutIcon, CreditCardIcon } from "lucide-react";
 import Link from "next/link";
 
+/**
+ * Render a dropdown button showing the authenticated user's avatar, name, and email with actions for Billing and Logout.
+ *
+ * Uses the authentication context to obtain the current user and logout action. If no user is authenticated, renders `null`.
+ *
+ * @returns {JSX.Element | null} A React element for the user dropdown menu, or `null` when there is no authenticated user.
+ */
 export function DashboardUserButton() {
   const { user, logout } = useAuth();
 

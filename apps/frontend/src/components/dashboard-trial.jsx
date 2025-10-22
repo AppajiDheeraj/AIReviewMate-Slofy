@@ -6,6 +6,13 @@ import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
 import { toast } from "sonner";
 
+/**
+ * Render a user's credits card showing current credits, a progress bar toward 500 credits, and an "Upgrade" link.
+ *
+ * Also fetches the authenticated user's credits from the API and shows a toast on fetch failure.
+ *
+ * @returns {JSX.Element|null} A React element displaying the user's credits progress and an Upgrade link, or `null` when there is no authenticated user.
+ */
 export function DashboardTrial() {
   const { user } = useAuth();
   const [credits, setCredits] = useState(0);

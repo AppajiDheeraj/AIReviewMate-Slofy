@@ -18,6 +18,13 @@ import { Badge } from "./ui/badge";
 import { useRef } from "react";
 import { useAuth } from "@/context/AuthContext";
 
+/**
+ * Render a code editor UI with AI-assisted review features including language and theme controls, debounced analysis, an AI diff view, and an AI explanation tab.
+ *
+ * The component manages editor state (theme, language, code), sends abortable review requests to the backend, supports cancelling and accepting AI-suggested changes, and conditionally shows AI results (diff and explanation).
+ *
+ * @returns {JSX.Element} The rendered CodeTerminalReview component.
+ */
 export default function CodeTerminalReview() {
   const { theme: appTheme } = useTheme();
   const [editorTheme, setEditorTheme] = useState("vs-dark");

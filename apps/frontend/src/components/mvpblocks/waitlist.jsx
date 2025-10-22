@@ -20,6 +20,13 @@ const users = [
   { imgUrl: "https://avatars.githubusercontent.com/u/71373838" },
 ];
 
+/**
+ * Render the waitlist landing page UI with theme-aware visuals, animated brand/title, feature cards, an email signup form that simulates submission, and an animated avatar showcase.
+ *
+ * The component updates background particle color based on the current theme, manages form state (email, submitting, submitted, error), and uses framer-motion for entrance and transition animations.
+ *
+ * @returns {JSX.Element} The React element for the waitlist landing experience.
+ */
 export default function WaitlistPage() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -215,7 +222,15 @@ export default function WaitlistPage() {
   );
 }
 
-// Small reusable Feature card
+/**
+ * Render a compact feature card with an icon, a bold title, and a muted description.
+ *
+ * @param {object} props
+ * @param {import('react').ComponentType<import('react').SVGProps<SVGSVGElement>>} props.icon - Icon component rendered above the title.
+ * @param {string} props.title - Short, prominent title for the feature.
+ * @param {string} props.desc - Brief descriptive text displayed below the title.
+ * @returns {JSX.Element} The rendered feature card element.
+ */
 function Feature({ icon: Icon, title, desc }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-xl border border-blue-500/10 bg-white/5 p-4 backdrop-blur-md transition-all hover:bg-blue-500/5 hover:shadow-md">

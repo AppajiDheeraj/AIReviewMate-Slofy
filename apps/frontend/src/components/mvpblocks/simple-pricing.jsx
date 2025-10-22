@@ -76,6 +76,16 @@ const plans = [
     cta: "Join AI Lab",
   },
 ];
+/**
+ * Render a responsive, animated pricing section with a monthly/yearly toggle and plan cards.
+ *
+ * The component defers rendering until mounted on the client to avoid SSR mismatches.
+ * It displays three predefined plans (one visually highlighted as popular), shows prices
+ * according to the selected frequency, lists plan features, and provides a CTA per plan.
+ * Clicking the "AI Lab" plan CTA navigates to the "/waitlist" route.
+ *
+ * @returns {JSX.Element} A React element containing the pricing UI with frequency tabs and plan cards.
+ */
 export default function SimplePricing() {
   const router = useRouter();
   const [frequency, setFrequency] = useState("monthly");

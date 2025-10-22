@@ -4,6 +4,12 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+/**
+ * Render children only on the client and redirect unauthenticated users to /login.
+ *
+ * @param {{children: import('react').ReactNode}} props - The content to render when access is permitted.
+ * @returns {import('react').ReactNode|null} The children when the component is mounted and access is allowed, or `null` while awaiting client mount.
+ */
 export function ProtectedRoute({ children }) {
   const { user } = useAuth();
   const router = useRouter();

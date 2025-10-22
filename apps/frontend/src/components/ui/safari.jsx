@@ -11,6 +11,22 @@ const TOP_PCT = (SCREEN_Y / SAFARI_HEIGHT) * 100
 const WIDTH_PCT = (SCREEN_WIDTH / SAFARI_WIDTH) * 100
 const HEIGHT_PCT = (SCREEN_HEIGHT / SAFARI_HEIGHT) * 100
 
+/**
+ * Render a Safari-style browser frame with optional background media and decorative chrome.
+ *
+ * Renders a responsive container sized to the intrinsic Safari dimensions, places a looping autoplay
+ * video or a top-aligned image into the framed screen area when provided, and overlays SVG chrome,
+ * URL text, and decorative elements. Additional props are forwarded to the container element.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} [props.imageSrc] - URL of a background image to display when no video is provided.
+ * @param {string} [props.videoSrc] - URL of a background video; when present the video is used instead of the image.
+ * @param {string} [props.url] - Text to render in the browser address area of the chrome.
+ * @param {string} [props.mode="default"] - Visual mode; `"default"` enables additional decorative SVG elements.
+ * @param {string} [props.className] - Additional CSS class names applied to the root container.
+ * @param {Object} [props.style] - Inline styles merged with the component's aspect-ratio style.
+ * @returns {JSX.Element} A React element containing the Safari-style frame with optional media and SVG overlay.
+ */
 export function Safari({
   imageSrc,
   videoSrc,

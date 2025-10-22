@@ -41,6 +41,13 @@ import { DashboardUserButton } from "@/components/dashboard-user-button";
 import {code, setCode} from "@/context/EditorContext";
 import { useAuth } from "@/context/AuthContext";
 
+/**
+ * Renders the GitHub-integrated application sidebar with repo fetching, file loading into the editor, and commit/PR workflows.
+ *
+ * This component provides an input to parse a GitHub repository URL, fetches and displays the repo tree, loads file contents into the editor context, and exposes a dialog to create commits and pull requests via backend API endpoints. It uses authentication context to attach the user's email to commit/PR requests and shows user feedback through toast notifications.
+ *
+ * @returns {JSX.Element} The sidebar UI containing brand header, GitHub controls, repository structure view, push/PR dialog, and footer actions.
+ */
 export function AppSidebar() {
   const [repoUrl, setRepoUrl] = useState("");
   const [treeData, setTreeData] = useState([]);
