@@ -1,0 +1,228 @@
+/* src/app/globals.css */
+
+/* --- CORRECTED FONT SETUP --- */
+
+/* 1. Define your locally hosted font.
+   The font-family name MUST match what you use in your CSS rules.
+*/
+
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* You can also apply it to a specific main container if you have one */
+main {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
+@font-face {
+  font-family: "Barlow Condensed"; /* CORRECTED: Name now matches the CSS rules */
+  src: url("/fonts/BarlowCondensed-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap; /* Tells the browser to show a fallback font while this one loads */
+}
+
+/* 2. Import the OTHER fonts you need from Google Fonts.
+   We have removed Barlow Condensed from this import because we are loading it locally.
+*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@300..800&display=swap" );
+
+
+/* --- ROOT VARIABLES --- */
+:root {
+  --base-100: #f9f4eb;
+  --base-200: #efece5;
+  --base-300: #0a0a0a;
+  --base-secondary-dark: #686560;
+  --base-secondary-fade: rgba(249, 244, 235, 0.15);
+  --accent-1: #b1c1ef;
+  --accent-2: #f2acac;
+  --accent-3: #ffdd94;
+}
+
+
+/* --- GLOBAL & ELEMENT STYLES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif; /* Fallback for 'Host Grotesk' */
+  background-color: var(--base-100);
+  color: var(--base-300);
+  /* Add font-smoothing for crisp, solid text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+/* This rule will now correctly use your local @font-face definition */
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif; /* This name now matches your @font-face rule */
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.02rem;
+}
+
+h1 { font-size: 12rem; }
+h2 { font-size: 8rem; }
+h3 { font-size: 6rem; }
+h4 { font-size: 2.5rem; }
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.1rem;
+}
+
+p.md { font-size: 1.3rem; }
+p.lg { font-size: 1.5rem; }
+
+p.mono {
+  text-transform: uppercase;
+  font-family: "DM Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+p.mono span,
+a span {
+  position: relative;
+  top: -0.1rem;
+}
+
+/* Styles for the Skill Strips Section */
+.outro-section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #f7f7f7; /* A light background color */
+  color: #111; /* Dark text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outro-section .outro-container {
+  position: relative;
+  z-index: 2; /* Ensure text is on top of strips */
+  text-align: center;
+  gap: 2rem;
+}
+
+.outro-section h3 {
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.outro-section .outro-strips {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150vw;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 1; /* Behind the main h3 text */
+}
+
+.outro-section .outro-strip {
+  position: relative;
+  transform: translateX(0%);
+  display: flex;
+  justify-content: space-around;
+  will-change: transform;
+}
+
+.outro-section .skill {
+  width: max-content;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.outro-section .skill p {
+  font-size: 0.9rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Margins to create the staggered look */
+.outro-section .os-1 { margin-top: 10rem; }
+.outro-section .os-2 { margin-top: -2rem; }
+.outro-section .os-3 { margin-top: 16rem; }
+.outro-section .os-4 { margin-top: -2rem; }
+.outro-section .os-5 { margin-top: 1rem; }
+.outro-section .os-6 { margin-top: 2rem; }
+
+/* Color variables - make sure these are defined in your :root */
+:root {
+  --accent-1: #ffc8dd;
+  --accent-2: #bde0fe;
+  --accent-3: #ffafcc;
+  --base-300: #1a1a1a;
+}
+
+.outro-section .skill.skill-var-1 {
+  background-color: var(--accent-1);
+  color: var(--base-300);
+}
+
+.outro-section .skill.skill-var-2 {
+  background-color: var(--accent-2);
+  color: var(--base-300);
+}
+
+.outro-section .skill.skill-var-3 {
+  background-color: var(--accent-3);
+  color: var(--base-300);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .outro-section h3 {
+    width: 90%;
+    font-size: 2rem;
+  }
+  .outro-section .outro-strips {
+    width: 300vw; /* Wider for more scroll effect on mobile */
+  }
+  .outro-section .os-1 { margin-top: 2.5rem; }
+  .outro-section .os-3 { margin-top: 10rem; }
+}
+
+
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 1000px) {
+  h1 { font-size: 6rem; }
+  h2 { font-size: 5rem; }
+  h3 { font-size: 3rem; }
+  p { font-size: 1rem; }
+  p.md { font-size: 1.125rem; }
+  p.lg { font-size: 1.25rem; }
+  p.mono { font-size: 0.8rem; }
+}
