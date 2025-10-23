@@ -5,13 +5,6 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
-/**
- * Render a Radix Tooltip provider that configures tooltip behavior for its children.
- *
- * @param {number} [delayDuration=0] - Milliseconds to wait before showing the tooltip.
- * @param {object} props - Additional props forwarded to the underlying TooltipPrimitive.Provider.
- * @returns {JSX.Element} The configured TooltipPrimitive.Provider element with forwarded props.
- */
 function TooltipProvider({
   delayDuration = 0,
   ...props
@@ -19,11 +12,6 @@ function TooltipProvider({
   return (<TooltipPrimitive.Provider data-slot="tooltip-provider" delayDuration={delayDuration} {...props} />);
 }
 
-/**
- * Compose a TooltipPrimitive.Root enclosed by a TooltipProvider to ensure provider context.
- * @param {Object} props - Props forwarded to TooltipPrimitive.Root (for example: children, open, defaultOpen, onOpenChange, etc.).
- * @returns {JSX.Element} The Tooltip root element wrapped with its provider.
- */
 function Tooltip({
   ...props
 }) {
@@ -34,28 +22,12 @@ function Tooltip({
   );
 }
 
-/**
- * Render the interactive element that toggles tooltip visibility.
- * @param {object} props - Props forwarded to the underlying trigger element (e.g., event handlers, className, children).
- * @returns {JSX.Element} The tooltip trigger React element with forwarded props.
- */
 function TooltipTrigger({
   ...props
 }) {
   return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
 }
 
-/**
- * Renders tooltip content and its arrow inside a portal.
- *
- * Renders a positioned tooltip panel with default styling and an arrow, and mounts it in a portal.
- *
- * @param {string} [className] - Additional CSS class names applied to the content container.
- * @param {number} [sideOffset=0] - Distance in pixels between the trigger and the content.
- * @param {import('react').ReactNode} [children] - Content to display inside the tooltip.
- * @param {Object} [props] - Additional props forwarded to the rendered tooltip content element.
- * @returns {JSX.Element} The rendered tooltip content element including its arrow.
- */
 function TooltipContent({
   className,
   sideOffset = 0,

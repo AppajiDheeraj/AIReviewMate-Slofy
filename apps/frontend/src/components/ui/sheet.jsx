@@ -6,60 +6,30 @@ import { XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-/**
- * Root container for the sheet UI.
- *
- * Renders the underlying Radix Sheet root element, attaches a `data-slot="sheet"` attribute,
- * and forwards all received props to the root element.
- * @param {object} props - Props forwarded to the Sheet root element (e.g., open state, handlers, className).
- * @returns {JSX.Element} The Sheet root element.
- */
 function Sheet({
   ...props
 }) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }
 
-/**
- * Render a trigger element for the Sheet that forwards received props to the underlying Radix trigger.
- * @param {object} props - Props to pass through to the underlying trigger element (e.g., event handlers, className, children).
- * @returns {JSX.Element} The Sheet trigger element with a `data-slot="sheet-trigger"` attribute.
- */
 function SheetTrigger({
   ...props
 }) {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
-/**
- * Render a sheet close trigger that forwards received props and marks the element with data-slot="sheet-close".
- *
- * @param {object} props - Props forwarded to the underlying close element (e.g., event handlers, className, aria attributes).
- * @returns {import('react').JSX.Element} The rendered sheet close element.
- */
 function SheetClose({
   ...props
 }) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
-/**
- * Render a Sheet portal that forwards all received props to Radix's Portal element.
- * @param {object} props - Props to forward to the underlying Portal element.
- * @returns {JSX.Element} The rendered Sheet portal element with data-slot="sheet-portal".
- */
 function SheetPortal({
   ...props
 }) {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 }
 
-/**
- * Render the sheet overlay backdrop with default backdrop, positioning, and open/close animation classes.
- * @param {Object} props - Component props.
- * @param {string} [props.className] - Additional class names to merge with the overlay's default classes.
- * @returns {JSX.Element} The overlay element for the sheet.
- */
 function SheetOverlay({
   className,
   ...props
@@ -75,15 +45,6 @@ function SheetOverlay({
   );
 }
 
-/**
- * Render the sheet's content area inside a portal with side-specific sizing, animations, overlay, and an integrated close button.
- *
- * @param {Object} props - Component props.
- * @param {string} [props.className] - Additional CSS classes to merge with the component's default styling.
- * @param {import('react').ReactNode} [props.children] - Content to render inside the sheet.
- * @param {'right'|'left'|'top'|'bottom'} [props.side="right"] - Edge from which the sheet opens; adjusts positioning, size, and enter/exit animations.
- * @returns {import('react').JSX.Element} The rendered sheet content element (wrapped in a portal with overlay and close control).
- */
 function SheetContent({
   className,
   children,
@@ -119,12 +80,6 @@ function SheetContent({
   );
 }
 
-/**
- * Renders a sheet header container with vertical layout, spacing, and padding.
- * @param {Object} props - Component props.
- * @param {string} [props.className] - Additional CSS classes to merge with the component's default classes.
- * @returns {JSX.Element} The rendered header element.
- */
 function SheetHeader({
   className,
   ...props
@@ -137,12 +92,6 @@ function SheetHeader({
   );
 }
 
-/**
- * Render a footer container for the sheet that pushes content to the end and applies spacing and padding.
- *
- * @param {string} [className] - Additional CSS class names to merge with the component's default layout and spacing classes.
- * @returns {JSX.Element} The sheet footer element.
- */
 function SheetFooter({
   className,
   ...props
@@ -155,13 +104,6 @@ function SheetFooter({
   );
 }
 
-/**
- * Renders the sheet's title element with default title styles and optional additional classes.
- *
- * @param {Object} props - Component props.
- * @param {string} [props.className] - Additional CSS class names to merge with the default title styles.
- * @returns {JSX.Element} The rendered Sheet title element.
- */
 function SheetTitle({
   className,
   ...props
@@ -174,13 +116,6 @@ function SheetTitle({
   );
 }
 
-/**
- * Render a sheet description element with the component's default muted text styling.
- *
- * @param {string} [className] - Additional CSS classes to merge with the component's default classes.
- * @param {Object} [props] - Additional props forwarded to the underlying Description element.
- * @returns {JSX.Element} The SheetPrimitive.Description element with merged classes and forwarded props.
- */
 function SheetDescription({
   className,
   ...props

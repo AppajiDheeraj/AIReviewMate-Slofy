@@ -5,13 +5,6 @@ import * as LabelPrimitive from "@radix-ui/react-label"
 
 import { cn } from "@/lib/utils"
 
-/**
- * Render a presentational label that wraps the Radix UI Label primitive with standardized styling.
- *
- * @param {Object} props - Component props.
- * @param {string} [props.className] - Additional class names to merge with the component's default styles.
- * @returns {JSX.Element} The rendered label element.
- */
 function Label({
   className,
   ...props

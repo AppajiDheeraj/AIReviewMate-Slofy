@@ -12,17 +12,6 @@ import {
 } from "@/components/ui/field";
 import { cn } from "@/lib/utils";
 
-/**
- * Render a sign-up form that collects name, email, and password and handles account creation.
- *
- * On submit, invokes `signup` from AuthContext; on success shows a success toast with the user's
- * name and redirects the browser to "/dashboard", and on failure shows an error toast with the error message.
- *
- * @param {Object} props
- * @param {string} [props.className] - Additional class names to apply to the root form element.
- * @param {...any} [props] - Additional props are spread onto the underlying `<form>` element.
- * @returns {JSX.Element} The sign-up form element.
- */
 export function SignUpForm({ className, ...props }) {
   const { signup } = useAuth();
 
