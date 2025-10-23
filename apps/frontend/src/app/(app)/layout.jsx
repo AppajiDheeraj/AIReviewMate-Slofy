@@ -22,6 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Slofy",
   description: "AI-powered code review dashboard",
+  icons: "/logo.png",
 };
 
 /**

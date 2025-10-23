@@ -27,11 +27,13 @@ export default function LoginPage() {
         </div>
       </div>
       <div className="bg-muted relative hidden lg:block">
-        <img
-          src="/placeholder.svg"
-          alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-        />
+        <div class="flex justify-center items-center h-full">
+          <img
+            src="/undraw_ai-answers_uxgx.svg"
+            alt="AI Response Illustration"
+            class="max-w-xs md:max-w-sm lg:max-w-md p-6"
+          />
+        </div>
         <div className="absolute bottom-0 left-0 right-0 p-8">
             <blockquote className="space-y-2 text-white/40">
                 <p className="text-lg">
