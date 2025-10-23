@@ -1,5 +1,9 @@
 # AIReviewMate — Real-time AI Code Review Platform
 
+<p align="center">
+  <img src="apps/landing-page/public/images/global/logo.png" alt="AIReviewMate Logo" height="180">
+</p>
+
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=nextdotjs)
 ![Node.js](https://img.shields.io/badge/Node.js-20-green?logo=node.js)
@@ -334,5 +338,6 @@ This project is licensed under the **MIT License**.
 ---
 
 ⭐ **If you find this project helpful, consider giving it a star!**
+
 
 
