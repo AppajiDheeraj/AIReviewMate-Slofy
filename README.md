@@ -323,7 +323,7 @@ User ─▶ Frontend (Next.js) ─▶ API Gateway ─▶ Auth Svc / LLM Svc / Gi
 
 > Building tools that empower developers through AI ✨
 
-🌐 [LinkedIn](https://linkedin.com/in/ajidheeraj) · 🐙 [GitHub](https://github.com/appajidheeraj)
+🌐 [LinkedIn](https://linkedin.com/in/appaji-dheeraj) · 🐙 [GitHub](https://github.com/appajidheeraj)
 
 ---
 
@@ -334,4 +334,5 @@ This project is licensed under the **MIT License**.
 ---
 
 ⭐ **If you find this project helpful, consider giving it a star!**
+
 
