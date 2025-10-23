@@ -88,15 +88,6 @@ const FloatingDockDesktop = ({
   );
 };
 
-/**
- * Renders a single dock item as a link that visually enlarges based on horizontal cursor proximity and displays a floating title while hovered.
- *
- * @param {Object} props
- * @param {import('framer-motion').MotionValue<number>} props.mouseX - Motion value representing the current horizontal mouse position (used to scale the item based on proximity).
- * @param {string} props.title - Text shown in the floating tooltip when the item is hovered.
- * @param {React.ReactNode} props.icon - Icon element rendered inside the dock item.
- * @param {string} props.href - Destination URL for the link wrapper.
- * @returns {JSX.Element} The rendered dock item as an anchor containing animated container and icon.
 function IconContainer({
   mouseX,
   title,

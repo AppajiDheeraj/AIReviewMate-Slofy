@@ -38,11 +38,6 @@ const applyParticleEffect = (element, options) => {
 
   const container = getContainer()
 
-  /**
-   * Create a single visual particle at the current pointer position, append it to the shared overlay container, and register its motion metadata for animation.
-   *
-   * The particle can be an SVG circle (default), an image (when `particleType` is a URL or path), or a text/emoji node; its size, horizontal speed, upward speed, and spin are sourced from `options` when present or randomized otherwise. The created DOM node is appended to `container` and an entry describing its element, position, size, direction, speeds, and spin is pushed into the `particles` array for later animation.
-   */
   function generateParticle() {
     const size =
       options?.size || sizes[Math.floor(Math.random() * sizes.length)]
@@ -101,14 +96,6 @@ const applyParticleEffect = (element, options) => {
     })
   }
 
-  /**
-   * Update particle positions, rotations, and lifecycle for the current frame.
-   *
-   * For each particle this updates its horizontal and vertical coordinates, decays
-   * its upward speed (bounded by its size), increments its spin, removes particles
-   * that have moved below the bottom of the page (and removes their DOM nodes),
-   * and writes the particle's inline styles for position and transform.
-   */
   function refreshParticles() {
     particles.forEach((p) => {
       p.left = p.left - p.speedHorz * p.direction
@@ -139,9 +126,6 @@ const applyParticleEffect = (element, options) => {
   let lastParticleTimestamp = 0
   const particleGenerationDelay = 30
 
-  /**
-   * Advance the particle animation one frame: generate a new particle if permitted, update all particles, and schedule the next animation frame.
-   */
   function loop() {
     const currentTime = performance.now()
     if (

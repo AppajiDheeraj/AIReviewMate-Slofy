@@ -32,16 +32,6 @@ const buttonVariants = cva(
     },
   },
 );
-/**
- * Render a button or a passthrough Slot element with class-variance-authority styling applied.
- *
- * @param {string} [className] - Additional CSS class names to merge with the computed variant classes.
- * @param {'default'|'destructive'|'outline'|'secondary'|'ghost'|'link'} [variant] - Visual variant to apply.
- * @param {'default'|'sm'|'lg'|'icon'} [size] - Size variant to apply.
- * @param {boolean} [asChild=false] - If true, render a Radix Slot to delegate rendering to a child; otherwise render a native `button`.
- * @param {object} [props] - Additional props forwarded to the rendered element.
- * @returns {JSX.Element} The rendered `button` or `Slot` element with computed classes and forwarded props.
- */
 function Button({ className, variant, size, asChild = false, ...props }) {
   const Comp = asChild ? Slot : "button";
   return (
