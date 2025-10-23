@@ -1,4 +1,4 @@
-# 🤖 AIReviewMate — Real-time AI Code Review Platform
+# AIReviewMate — Real-time AI Code Review Platform
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=nextdotjs)
@@ -72,6 +72,62 @@ O
 D
 end
 ```
+
+## Sequence Flow Diagram
+
+```mermaid
+sequenceDiagram
+    participant U as User / Frontend
+    participant AG as API Gateway (Express + Proxy)
+    participant Auth as Auth Service
+    participant Credits as Credits Service
+    participant LLM as LLM Service
+    participant GitHub as GitHub Service
+    participant Notify as Notify Service
+    participant DB as Shared Postgres DB
+
+    %% Signup Flow
+    U->>AG: POST /api/auth/signup
+    AG->>Auth: Forward signup request
+    Auth->>DB: Insert user record
+    DB-->>Auth: Confirmation
+    Auth-->>AG: Signup response + JWT
+    AG->>Notify: Send welcome email
+    AG-->>U: Response with user + token
+
+    %% Login Flow
+    U->>AG: POST /api/auth/login
+    AG->>Auth: Forward login request
+    Auth->>DB: Validate user credentials
+    DB-->>Auth: User data
+    Auth-->>AG: JWT + user data
+    AG->>Notify: Optional login alert email
+    AG-->>U: Response with user + token
+
+    %% Code Review Flow
+    U->>AG: POST /api/llm/review
+    AG->>LLM: Forward code for review
+    LLM-->>AG: Return code review suggestions
+    AG->>Credits: Deduct 5 credits
+    AG-->>U: Return suggestions + improved code
+
+    %% GitHub Commit Flow
+    U->>AG: POST /api/github/commit
+    AG->>GitHub: Forward commit request
+    GitHub-->>AG: Commit confirmation
+    AG->>Credits: Deduct 10 credits
+    AG->>Notify: Commit success email
+    AG-->>U: Response with commit URLs
+
+    %% Pull Request Flow
+    U->>AG: POST /api/github/pull-request
+    AG->>GitHub: Forward PR request
+    GitHub-->>AG: PR confirmation / URL
+    AG->>Credits: Deduct 10 credits
+    AG->>Notify: PR created email
+    AG-->>U: Response with PR URL
+```
+
 
 ### 🧩 Microservice Breakdown
 
@@ -167,7 +223,7 @@ cd appajidheeraj-aireviewmate-slofy
 
 ```bash
 cd apps/frontend && npm install
-cd ../../services/auth-service && npm install
+cd ../../services/auth-service && npm install #Similarly for all microservices
 ```
 
 ### 3️⃣ Environment Configuration
@@ -183,17 +239,11 @@ GITHUB_TOKEN=ghp_xxxxxx
 
 ### 4️⃣ Start All Services
 
-#### Option 1 — Local
-
 ```bash
-npm run dev
+npm run dev        #For frontend
+nodemon server.js  #For microservices
 ```
 
-#### Option 2 — Dockerized Deployment
-
-```bash
-docker-compose up --build
-```
 
 ---
 
@@ -231,6 +281,32 @@ User ─▶ Frontend (Next.js) ─▶ API Gateway ─▶ Auth Svc / LLM Svc / Gi
 
 ---
 
+## 🎬 Demo & Screenshots
+
+- Frontend Dashboard:
+
+- Code Review Panel:
+
+- PR Integration:
+
+(Placeholders for GIFs and demo videos can be added here)
+
+## 📚 References & Inspirations
+
+- Monaco Editor & React integration
+
+- Code diff visualization techniques (CodeGrid)
+
+- Neon DB + Drizzle ORM for relational database handling
+
+- YouTube tutorials on microservices and AI integration
+
+- GSAP for smooth UI/UX transitions
+
+- OpenAI structured prompt examples
+
+---
+
 ## 🔮 Roadmap
 
 * [ ] **Collaborative Multi-user Code Review**
@@ -258,3 +334,4 @@ This project is licensed under the **MIT License**.
 ---
 
 ⭐ **If you find this project helpful, consider giving it a star!**
+
