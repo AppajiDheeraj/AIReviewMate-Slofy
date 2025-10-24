@@ -2,11 +2,6 @@ import { GalleryVerticalEnd } from "lucide-react"
 
 import { LoginForm } from "@/components/login-form"
 
-/**
- * Render the login page layout with a left column containing the site header and login form and a right column (visible on large screens) showing a background image with a testimonial overlay.
- *
- * @returns {JSX.Element} The page's React element tree for the login screen.
- */
 export default function LoginPage() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">

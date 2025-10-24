@@ -1,11 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useRef, useState } from "react";
-/**
- * Track the current mouse cursor coordinates relative to the viewport.
- *
- * @returns {{x: number, y: number}} An object with `x` and `y` properties representing the cursor's horizontal and vertical coordinates in CSS pixels (clientX/clientY).
- */
 function MousePosition() {
   const [mousePosition, setMousePosition] = useState({
     x: 0,
@@ -22,11 +17,6 @@ function MousePosition() {
   }, []);
   return mousePosition;
 }
-/**
- * Convert a hex color string to its RGB numeric components.
- * @param {string} hex - Hex color in 3- or 6-digit form, with or without a leading `#`.
- * @returns {number[]} Array `[red, green, blue]` with each component in the range 0–255.
- */
 function hexToRgb(hex) {
   hex = hex.replace("#", "");
   if (hex.length === 3) {
