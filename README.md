@@ -25,7 +25,7 @@
 
 ## 📹 Project Video
 
-[![Watch the Project Video](assets/Record202510240002-Thumbnail.jpg)](assets/demo-video.mp4)
+[![Watch the Project Video](assets/Record202510240002-Thumbnail.jpg)](assets/GDG_WEC.mp4)
 
 ---
 
@@ -350,6 +350,7 @@ This project is licensed under the **MIT License**.
 ---
 
 ⭐ **If you find this project helpful, consider giving it a star!**
+
 
 
 
